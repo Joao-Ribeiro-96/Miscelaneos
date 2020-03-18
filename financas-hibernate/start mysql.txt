@@ -1,0 +1,7 @@
+cd C:\Program Files\MySQL\MySQL Server 8.0\bin\
+
+mysql.exe -uroot -p
+
+erro no time zone:
+
+property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/financas?useTimezone=true&amp;serverTimezone=UTC
