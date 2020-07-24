@@ -1,0 +1,55 @@
+package anagrama;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class TesteAnagrama3EspecialDeNatal {
+
+	
+	public static void main(String[] args) {
+		
+		List<StringBuilder>anagramas = gerarAnagramas(new StringBuilder("abcde"));
+		
+//		anagramas.forEach(a ->{
+//			System.out.println(a.toString());
+//		});
+	}
+
+	private static List<StringBuilder> gerarAnagramas(StringBuilder palavra) {
+		
+		List<StringBuilder> anagramas = new ArrayList<>();
+		String palavraInicial = palavra.toString();
+		int i = palavra.length() - 1;
+		do {
+			
+			char letras[] = palavra.toString().toCharArray();
+			
+			int anterior = i-1;
+			
+			if(anterior < 0) {
+				anterior = palavra.length()-1;
+			}
+			char a = letras[i];
+			letras[i] = letras[anterior];
+			letras[anterior] = a;
+			
+			
+			palavra = palavra.delete(0, (palavra.length()));
+			palavra.append(letras);
+			
+			
+			if (i!=0) {
+				i--;
+			}else {
+				i = palavra.length() -1;
+			}
+			
+			System.out.println(palavra);
+			anagramas.add(palavra);
+		
+		}while(!palavraInicial.equals(palavra.toString()));
+		
+		return anagramas;
+		
+	}
+}
